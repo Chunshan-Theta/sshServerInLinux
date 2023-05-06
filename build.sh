@@ -26,9 +26,9 @@ sudo ufw enable
 
 # 只允許 user1 用戶通過密碼登錄
 PasswordAuthentication yes
-AllowUsers user1
+AllowUsers ssher
 
 # 重新啟動 SSH 服務器
 sudo systemctl restart sshd
 
-# sudo passwd user1
+sudo passwd ssher
