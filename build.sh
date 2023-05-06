@@ -12,9 +12,22 @@ sudo apt upgrade -y
 sudo apt install -y openssh-server ufw
 
 # 配置 SSH 服務器
+sudo sed -i "s/Port 22/Port $SSH_PORT/" /etc/ssh/sshd_config
 sudo sed -i "s/#Port 22/Port $SSH_PORT/" /etc/ssh/sshd_config
+
+sudo sed -i "s/#PermitRootLogin yes/PermitRootLogin $SSH_PERMIT_ROOT_LOGIN/" /etc/ssh/sshd_config
+sudo sed -i "s/#PermitRootLogin no/PermitRootLogin $SSH_PERMIT_ROOT_LOGIN/" /etc/ssh/sshd_config
 sudo sed -i "s/PermitRootLogin yes/PermitRootLogin $SSH_PERMIT_ROOT_LOGIN/" /etc/ssh/sshd_config
+sudo sed -i "s/PermitRootLogin no/PermitRootLogin $SSH_PERMIT_ROOT_LOGIN/" /etc/ssh/sshd_config
+
+
 sudo sed -i "s/#PasswordAuthentication yes/PasswordAuthentication $SSH_PASSWORD_AUTHENTICATION/" /etc/ssh/sshd_config
+sudo sed -i "s/#PasswordAuthentication no/PasswordAuthentication $SSH_PASSWORD_AUTHENTICATION/" /etc/ssh/sshd_config
+sudo sed -i "s/PasswordAuthentication yes/PasswordAuthentication $SSH_PASSWORD_AUTHENTICATION/" /etc/ssh/sshd_config
+sudo sed -i "s/PasswordAuthentication no/PasswordAuthentication $SSH_PASSWORD_AUTHENTICATION/" /etc/ssh/sshd_config
+
+
+
 sudo echo "AllowUsers $SSH_ALLOW_USERS" >> /etc/ssh/sshd_config
 
 
