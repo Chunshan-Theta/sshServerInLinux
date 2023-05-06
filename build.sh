@@ -4,7 +4,7 @@
 SSH_PORT="22"  # 設置 SSH 服務器使用的端口
 SSH_PERMIT_ROOT_LOGIN="no"  # 禁用 root 用戶登錄
 SSH_PASSWORD_AUTHENTICATION="no"  # 禁用密碼登錄
-SSH_ALLOW_USERS="user1 user2"  # 允許登錄的用戶名，多個用空格分隔
+SSH_ALLOW_USERS="ssher"  # 允許登錄的用戶名，多個用空格分隔
 
 # 更新系統和安裝所需軟件包
 sudo apt update
