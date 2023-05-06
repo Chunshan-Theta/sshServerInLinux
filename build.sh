@@ -17,9 +17,18 @@ sudo sed -i "s/PermitRootLogin yes/PermitRootLogin $SSH_PERMIT_ROOT_LOGIN/" /etc
 sudo sed -i "s/#PasswordAuthentication yes/PasswordAuthentication $SSH_PASSWORD_AUTHENTICATION/" /etc/ssh/sshd_config
 sudo echo "AllowUsers $SSH_ALLOW_USERS" >> /etc/ssh/sshd_config
 
-# 重新啟動 SSH 服務器
-sudo systemctl restart sshd
+
 
 # 設置防火牆
 sudo ufw allow $SSH_PORT/tcp
 sudo ufw enable
+
+
+# 只允許 user1 用戶通過密碼登錄
+PasswordAuthentication yes
+AllowUsers user1
+
+# 重新啟動 SSH 服務器
+sudo systemctl restart sshd
+
+# sudo passwd user1
