@@ -31,4 +31,5 @@ AllowUsers ssher
 # 重新啟動 SSH 服務器
 sudo systemctl restart sshd
 
-sudo passwd ssher
+sudo adduser ssher
+# sudo passwd ssher
