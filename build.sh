@@ -3,7 +3,7 @@
 # 設定 SSH 服務器的參數
 SSH_PORT="22"  # 設置 SSH 服務器使用的端口
 SSH_PERMIT_ROOT_LOGIN="no"  # 禁用 root 用戶登錄
-SSH_PASSWORD_AUTHENTICATION="no"  # 禁用密碼登錄
+SSH_PASSWORD_AUTHENTICATION="yes"  # 禁用密碼登錄
 SSH_ALLOW_USERS="ssher"  # 允許登錄的用戶名，多個用空格分隔
 
 # 更新系統和安裝所需軟件包
@@ -24,9 +24,6 @@ sudo ufw allow $SSH_PORT/tcp
 sudo ufw enable
 
 
-# 只允許 user1 用戶通過密碼登錄
-PasswordAuthentication yes
-AllowUsers ssher
 
 # 重新啟動 SSH 服務器
 sudo systemctl restart sshd
