@@ -34,12 +34,7 @@ sudo echo "AllowUsers $SSH_ALLOW_USERS" >> /etc/ssh/sshd_config
 
 # 設置防火牆
 sudo ufw allow $SSH_PORT/tcp
-sudo ufw enable
 
-
-
-# 重新啟動 SSH 服務器
-sudo systemctl restart sshd
-
+# 新增使用者
 sudo adduser ssher
 # sudo passwd ssher
